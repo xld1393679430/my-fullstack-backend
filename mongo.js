@@ -22,15 +22,30 @@ const noteSchema = new mongoose.Schema({
     important: Boolean,
 })
 
-const Note = mongoose.model('Note', noteSchema)
-
-const note = new Note({
-    content: 'HTML is easy',
-    data: new Date(),
-    important: true,
+noteSchema.set('toJSON', {
+    transform: (document, returnObj) => {
+        returnObj.id = returnObj._id.toString()
+        delete returnObj._id
+        delete returnObj.__v
+    }
 })
 
-note.save().then(res => {
-    console.log('note saved!')
+const Note = mongoose.model('Note', noteSchema)
+
+// const note = new Note({
+//     content: 'HTML is easy',
+//     data: new Date(),
+//     important: true,
+// })
+
+// note.save().then(res => {
+//     console.log('note saved!')
+//     mongoose.connection.close()
+// })
+
+Note.find({}).then(result => {
+    result.forEach(note => {
+        console.log(note)
+    })
     mongoose.connection.close()
 })
