@@ -7,15 +7,21 @@ mongoose.connect(url, {
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true
-}).then(res => {
-    console.log('connected to MongoDB')
-}).catch(error => {
-    console.log('error connecting to MongoDB:', error.message)
-})
+}).then(() => { })
+    .catch(error => {
+        console.log('error connecting to MongoDB:', error.message)
+    })
 
 const noteSchema = new mongoose.Schema({
-    content: String,
-    date: Date,
+    content: {
+        type: String,
+        minlength: 5,
+        require: true
+    },
+    date: {
+        type: Date,
+        require: true
+    },
     important: Boolean,
 })
 
@@ -26,6 +32,5 @@ noteSchema.set('toJSON', {
         delete returnedObject.__v
     }
 })
-
 
 module.exports = mongoose.model('Note', noteSchema)
