@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=dev nodemon index.js",
     "mongo-start": "node mongo.js xld340826"
@@ -17,6 +19,9 @@
     "mongoose": "^5.12.3"
   },
   "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7"
   }
 }

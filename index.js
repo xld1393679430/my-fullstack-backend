@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
   Note.find({}).then(notes => {
-      res.json(notes)
+    res.json(notes)
   })
 })
 
@@ -49,13 +49,13 @@ app.get('/api/notes/:id', (req, res, next) => {
 })
 
 app.delete('/api/notes/:id', (req, res, next) => {
-  Note.findByIdAndRemove(req.params.id).then(data => {
+  Note.findByIdAndRemove(req.params.id).then(() => {
     res.status(204).end()
   }).catch(error => next(error))
 })
 
 app.post('/api/notes', (req, res, next) => {
-  const {content, important} = req.body || {}
+  const { content, important } = req.body || {}
   if (!content) {
     return res.status(404).json({
       error: 'miss content'
@@ -65,7 +65,7 @@ app.post('/api/notes', (req, res, next) => {
     content,
     important: important || false,
     date: new Date()
-  }) 
+  })
   note.save().then(saveNote => {
     res.json(saveNote)
   }).catch(error => {
@@ -80,7 +80,7 @@ app.put('/api/notes/:id', (req, res, next) => {
     important: body.important,
   }
 
-  Note.findByIdAndUpdate(req.params.id, note, {new: true}).then(data => {
+  Note.findByIdAndUpdate(req.params.id, note, { new: true }).then(data => {
     res.json(data)
   }).catch(error => next(error))
 })
