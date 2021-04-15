@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/home/index.jsx"],"names":["Home"],"mappings":"+GAAA,wBAUeA,UARf,WACE,OACE,8BACE","file":"static/js/8.1f7d35ca.chunk.js","sourcesContent":["import React from 'react';\n\nfunction Home(){\n  return (\n    <div>\n      <h2>TKTL notes app</h2>\n    </div>\n  );\n}\n\nexport default Home;\n"],"sourceRoot":""}

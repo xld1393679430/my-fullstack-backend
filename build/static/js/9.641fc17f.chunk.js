@@ -1,0 +1,2 @@
+(this.webpackJsonpfullstackopen=this.webpackJsonpfullstackopen||[]).push([[9],{92:function(t,n,e){"use strict";e.r(n);e(0);var c=e(47),s=e(18),i=e(6);n.default=function(){Object(c.c)((function(t){return t})).notes;var t=Object(s.h)().id;return Object(i.jsxs)("div",{children:["note id: ",t]})}}}]);
+//# sourceMappingURL=9.641fc17f.chunk.js.map
