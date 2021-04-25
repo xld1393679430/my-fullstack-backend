@@ -10,6 +10,7 @@ const notesRouter = require('./controllers/notes')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const weatherRouter = require('./controllers/weather')
+const downloadImageRouter = require('./controllers/downloadImage')
 
 logger.info('connecting to', config.MONGODB_URI)
 
@@ -30,6 +31,7 @@ app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/weather', weatherRouter)
+app.use('/api/downloadImage', downloadImageRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
