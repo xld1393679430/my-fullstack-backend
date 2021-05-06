@@ -7,7 +7,6 @@ const request = require('request')
 
 shopeeRouter.get('/login', (req, res, next) => {
   const url = req.query.url
-  const fileName = req.query.fileName
   request.get({ url, encoding: null }, (error, response, body) => {
     if (error) {
       next(error)
@@ -16,7 +15,7 @@ shopeeRouter.get('/login', (req, res, next) => {
     // const fileType = response.headers['content-type'].split('/')[1]
     // res.setHeader('Content-disposition', getContentDisposition(fileName, fileType))
     res.setHeader('Content-type', response.headers['content-type'])
-    console.log(url, fileName, body)
+    console.log(url, body)
     res.send(body)
   })
 })
