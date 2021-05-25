@@ -13,6 +13,7 @@ const weatherRouter = require('./controllers/weather')
 const downloadImageRouter = require('./controllers/downloadImage')
 const shopeeRouter = require('./controllers/shopee')
 const jsonpRouter = require('./controllers/jsonp')
+const checkShopeeChatVersionRouter = require('./controllers/checkShopeeChatVersion')
 
 logger.info('connecting to', config.MONGODB_URI)
 
@@ -36,7 +37,7 @@ app.use('/api/weather', weatherRouter)
 app.use('/api/downloadImage', downloadImageRouter)
 app.use('/api/shopee', shopeeRouter)
 app.use('/api/jsonp', jsonpRouter)
-
+app.use('/api/shopeeChatVersion', checkShopeeChatVersionRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
